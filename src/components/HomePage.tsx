@@ -1,10 +1,11 @@
-import { MapPin } from 'lucide-react';
+import { MapPin, Shield } from 'lucide-react';
 
 interface HomePageProps {
   onSelectLAC: (lac: string) => void;
+  onAdminClick: () => void;
 }
 
-export default function HomePage({ onSelectLAC }: HomePageProps) {
+export default function HomePage({ onSelectLAC, onAdminClick }: HomePageProps) {
   const lacs = [
     { name: 'Dhemaji', color: 'bg-orange-500 hover:bg-orange-600' },
     { name: 'Sisiborgaon', color: 'bg-green-600 hover:bg-green-700' },
@@ -41,13 +42,23 @@ export default function HomePage({ onSelectLAC }: HomePageProps) {
           </div>
         </div>
 
-        <div className="mt-8 text-center">
+        <div className="mt-8 text-center space-y-4">
           <div className="inline-block bg-gradient-to-r from-orange-500 to-green-600 p-1 rounded-lg">
             <div className="bg-white px-8 py-4 rounded-lg">
               <p className="text-gray-700 font-semibold">
                 Empowering Democracy Through Engagement
               </p>
             </div>
+          </div>
+
+          <div className="mt-6">
+            <button
+              onClick={onAdminClick}
+              className="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-colors"
+            >
+              <Shield className="w-5 h-5" />
+              Admin Panel
+            </button>
           </div>
         </div>
       </div>
